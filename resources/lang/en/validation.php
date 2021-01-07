@@ -155,6 +155,39 @@ return [
         'eff_turb' => [
             'required' => 'Turb is required',
         ],
+        'pre_ph' => [
+            'required' => 'pH is required',
+        ],
+        'pre_cl2t' => [
+            'required' => 'CLT-2 is required',
+        ],
+        'pre_nh4t' => [
+            'required' => 'NH4-T is required',
+        ],
+        'pre_cond' => [
+            'required' => 'Cond is required',
+        ],
+        'pre_turb' => [
+            'required' => 'Turb is required',
+        ],
+        'post_ph' => [
+            'required' => 'pH is required',
+        ],
+        'post_cl2t' => [
+            'required' => 'CLT-2 is required',
+        ],
+        'post_nh4t' => [
+            'required' => 'NH4-T is required',
+        ],
+        'post_po4' => [
+            'required' => 'PO4 is required',
+        ],
+        'post_cond' => [
+            'required' => 'Cond is required',
+        ],
+        'post_turb' => [
+            'required' => 'Turb is required',
+        ],
         'lab_date' => [
             'unique' => 'There is already an entry for this date',
         ],

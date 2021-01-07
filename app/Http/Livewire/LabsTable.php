@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Lab;
-use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,24 +10,20 @@ class LabsTable extends Component
 {
     use WithPagination;
 
-
     public $search = '';
-    public $perPage = 25;
+    public $perPage = 20;
     public $sortField = 'id';
     public $sortAsc = true;
     public $selected = [];
 
 
-    public function deleteUsers()
-    {
-        User::destroy($this->selected);
+    public function deleteLabs() {
+        Lab::destroy($this->selected);
     }
-
     
-    public function render()
-    {
+    public function render() {
         return view('livewire.labs-table', [
-            'users' => User::search($this->search)
+            'labs' => Lab::search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),
         ]);
