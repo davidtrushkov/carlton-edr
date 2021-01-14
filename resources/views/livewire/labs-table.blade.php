@@ -22,38 +22,41 @@
                 </div>
             </div>
             <div class="w-1/6 relative md:visible sm:w-6/6">
-                <!-- <button wire:click="deleteUsers" class="block appearance-none w-full bg-red-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">Delete</button> -->
-                <a href="/labs/create" class="block appearance-none w-full text-center bg-blue-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-blue-700 focus:border-gray-500">
-                    Enter Lab
-                </a>
+                <button wire:click="deleteLabs" class="block appearance-none w-full bg-red-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">Delete</button>
             </div>
         </div>
+
+        <div class="w-full mb-12">
+            <a href="/labs/create" class="block appearance-none w-full text-center bg-blue-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-blue-700 focus:border-gray-500">
+                Enter Lab
+            </a>
+        </div>
+
         @if($labs->isNotEmpty())
             <div class="mb-12">
                 <table class="table-auto w-full mb-6">
                     <thead>
                         <tr>
+                            <th class="px-4 py-2 text-left">Action</th>
                             <th class="px-4 py-2 text-left">ID</th>
                             <th class="px-4 py-2 text-left">Created At</th>
-                            <th class="px-4 py-2 text-left">Actions</th>
+                            <th class="px-4 py-2 text-left">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($labs as $lab)
                             <tr class="hover:bg-gray-100">
+                                <td class="border px-4 py-2">
+                                    <input wire:model="selected" value="{{ $lab->id }}" type="checkbox">
+                                </td>
                                 <td class="border px-4 py-2">{{ $lab->id }}</td>
-                                <td class="border px-4 py-2">{{ $lab->created_at }}</td>
+                                <td class="border px-4 py-2">{{ $lab->created_at->format('m-d-Y') }}</td>
                                 <td class="py-2 border px-4">
                                     <div class="flex items-center">
                                         <ul class="flex items-center">
                                             <li class="mr-4">
                                                 <a href="{{ route('labsEdit', $lab->id) }}" class="text-gray-500 font-bold">
                                                     Edit
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="text-blue-400 font-bold">
-                                                    View
                                                 </a>
                                             </li>
                                         </ul>

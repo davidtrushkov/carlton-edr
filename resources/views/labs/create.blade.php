@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    <div class="container mx-auto pt-12 pb-12"> 
+    <div class="container mx-auto pt-12 pb-12 pl-2 pr-2"> 
         <form action="/labs/post" method="post" >
         @csrf
 
@@ -286,7 +286,10 @@
 
 
 
-        <div class="block text-right py-2 pt-16 px-3 -mx-3 -mb-2 rounded-b-lg">
+        <div class="block text-right py-2 pt-12 px-3 -mx-3 -mb-2 rounded-b-lg">
+            <a href="{{ url('/labs') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg mr-6">
+                Back
+            </a>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
                 Save
             </button>

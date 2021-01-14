@@ -7,3 +7,13 @@
         margin-top: 8px;
     }
 }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 3px;
+  line-height: inherit;
+  color: inherit;
+}

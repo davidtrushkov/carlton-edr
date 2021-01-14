@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lab;
 use Carbon\Carbon;
+use App\Models\Lab;
+use App\Exports\LabsExport;
 use Illuminate\Http\Request;
-
-use function Ramsey\Uuid\v1;
 
 class LabController extends Controller
 {
@@ -15,10 +14,10 @@ class LabController extends Controller
     	
         $labs = Lab::latest()->get();
 
-        $labCOND = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('eff_cond');
-        $labCONDDay = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('lab_date')->map->format('m-d');
+        //$labCOND = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('eff_cond');
+        //$labCONDDay = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('lab_date')->map->format('m-d');
 
-    	return view('labs.labs', ['labs' => $labs, 'labCOND' => $labCOND, 'labCONDDay' => $labCONDDay]);
+    	return view('labs.labs', ['labs' => $labs]);
     }
 
         
@@ -90,7 +89,8 @@ class LabController extends Controller
     }
 
     public function edit($id) { 
-        $lab = Lab::findOrFail($id);   
+        $lab = Lab::findOrFail($id);
+        
     	return view('labs.edit', ['lab' => $lab]);
     }
 
@@ -154,5 +154,20 @@ class LabController extends Controller
     }
 
 
+    public function export() {
+        $data = request('excel_data');
+
+        if ($data === 'all_samples') { 
+            return (new LabsExport($data))->download('all-lab.xlsx');
+        } else if ($data === 'eff_samples') {
+            return (new LabsExport($data))->download('lab-effluent.xlsx');
+        } else if ($data === 'pr_pre_samples') {
+            return (new LabsExport($data))->download('lab-pr-pre.xlsx');
+        } else if ($data === 'pr_post_samples') {
+            return (new LabsExport($data))->download('lab-pr-post.xlsx');
+        } else {
+            return back();
+        }
+    }
 
 }

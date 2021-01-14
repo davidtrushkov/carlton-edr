@@ -23,6 +23,8 @@ Route::get('/labs/edit/{id}', [\App\Http\Controllers\LabController::class, 'edit
 Route::post('/labs/post', [\App\Http\Controllers\LabController::class, 'store']);
 Route::post('/labs/post/update/{id}', [\App\Http\Controllers\LabController::class, 'update']);
 
+Route::post('/labs/export', [\App\Http\Controllers\LabController::class, 'export'])->name('LabExport');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
