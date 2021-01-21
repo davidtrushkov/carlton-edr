@@ -191,6 +191,32 @@ return [
         'lab_date' => [
             'unique' => 'There is already an entry for this date',
         ],
+
+        // For Wells
+        'temp' => [
+            'required' => 'Tempature required',
+        ],
+        'ph' => [
+            'required' => 'ph required',
+        ],
+        'do' => [
+            'required' => 'D.O. required',
+        ],
+        'cond' => [
+            'required' => 'Conductivity required',
+        ],
+        'ntu' => [
+            'required' => 'NTU required',
+        ],
+        'date' => [
+            'required' => 'Date sampled required',
+        ],
+        'grab_time' => [
+            'required' => 'Sample time required',
+        ],
+        'well_id' => [
+            'required' => 'Select a well',
+        ],
     ],
 
     /*

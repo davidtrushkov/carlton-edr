@@ -3,8 +3,23 @@
 @import 'tailwindcss/utilities';
 
 @media (max-width: 767px) { 
+    .hidden-xs {
+      display: none;
+    }
+    .visible-xs {
+      display: block;
+    }
     .xs-mt {
         margin-top: 8px;
+    }
+    .not-rounded-xs {
+      border-radius: 0%;
+    }
+    .border-bottom-xs {
+      border-bottom: 1px solid #e4e4e4;
+    }
+    .ml-0-xs {
+      margin-left: 0;
     }
 }
 

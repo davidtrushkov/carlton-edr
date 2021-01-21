@@ -24,6 +24,13 @@ Route::post('/labs/post', [\App\Http\Controllers\LabController::class, 'store'])
 Route::post('/labs/post/update/{id}', [\App\Http\Controllers\LabController::class, 'update']);
 
 Route::post('/labs/export', [\App\Http\Controllers\LabController::class, 'export'])->name('LabExport');
+Route::post('/wells/export', [\App\Http\Controllers\WellController::class, 'export'])->name('WellExport');
+
+Route::get('/wells', [\App\Http\Controllers\WellController::class, 'index'])->name('wells');
+Route::get('/wells/create', [\App\Http\Controllers\WellController::class, 'create'])->name('wellsCreate');
+Route::post('/wells/post', [\App\Http\Controllers\WellController::class, 'store']);
+Route::get('/wells/edit/{id}', [\App\Http\Controllers\WellController::class, 'edit'])->name('wellsEdit');
+Route::post('/wells/update/{id}', [\App\Http\Controllers\WellController::class, 'update']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

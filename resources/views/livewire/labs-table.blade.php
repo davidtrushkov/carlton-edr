@@ -1,6 +1,6 @@
 <div>
         <div class="w-full flex pb-10">
-            <div class="w-3/6 mx-1">
+            <div class="w-3/6 xs:w-full mx-1">
                 <input wire:model.debounce.300ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"placeholder="Search labs...">
             </div>
             <div class="w-1/6 relative mx-1">
@@ -22,7 +22,10 @@
                 </div>
             </div>
             <div class="w-1/6 relative md:visible sm:w-6/6">
-                <button wire:click="deleteLabs" class="block appearance-none w-full bg-red-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">Delete</button>
+                <button wire:click="deleteLabs" class="hidden-xs block appearance-none w-full bg-red-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    Delete
+                </button>
+                <img wire:click="deleteLabs" class="float-right visible-xs hidden" src="{{ asset('/svg/icons8-trash-can.svg') }}" />
             </div>
         </div>
 

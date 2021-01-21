@@ -12,12 +12,12 @@ class LabController extends Controller
     
     public function index() {
     	
-        $labs = Lab::latest()->get();
+        //$labs = Lab::latest()->get();
 
         //$labCOND = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('eff_cond');
         //$labCONDDay = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('lab_date')->map->format('m-d');
 
-    	return view('labs.labs', ['labs' => $labs]);
+    	return view('labs.labs');
     }
 
         

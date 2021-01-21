@@ -2,10 +2,10 @@
     
     <div class="container mx-auto pt-12 pb-12">
         <div class="lg:flex lg:mx-4 lg:justify-between">
-            <div class="lg:w-64 bg-white md:mb-12 lg:m-0 rounded-lg p-4">
+            <div class="lg:w-64 bg-white md:mb-12 lg:m-0 rounded-lg not-rounded-xs border-bottom-xs p-4">
                 @include('components.sidebar')
             </div>
-            <div class="lg:flex-1 lg:mx-4 bg-white rounded-lg p-4 xs-mt">    
+            <div class="lg:flex-1 lg:mx-4 bg-white rounded-lg p-4 not-rounded-xs">    
 
                 <livewire:labs-table></livewire:labs-table>
 
