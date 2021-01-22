@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\Lab;
 use App\Exports\LabsExport;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
@@ -52,11 +52,6 @@ class LabController extends Controller
             'post_turb' => 'required|numeric',
         ]);
         
-        if(request('lab_date') > Carbon::now()) {
-            session()->flash('error_message', 'Can not have a future lab date selected');
-            return back();
-        }
-
         $lab = Lab::create([
             'user_id' => request()->user()->id,
             'lab_date' => request('lab_date'),
@@ -85,7 +80,13 @@ class LabController extends Controller
         
     	$lab->save();
 
-	    return redirect('/labs');
+        $SubmitAndContinue = request('saveAndContinueToLab');
+
+        if (isset($SubmitAndContinue)) {
+            return redirect(route('labsCreate'));
+        } else {
+            return redirect('/labs');
+        }
     }
 
     public function edit($id) { 
@@ -156,15 +157,19 @@ class LabController extends Controller
 
     public function export() {
         $data = request('excel_data');
+        $from = Carbon::parse(request('from'));
+        $to = Carbon::parse(request('to'));
 
         if ($data === 'all_samples') { 
-            return (new LabsExport($data))->download('all-lab.xlsx');
+            return (new LabsExport($data, $from, $to))->download('all-lab.xlsx');
         } else if ($data === 'eff_samples') {
-            return (new LabsExport($data))->download('lab-effluent.xlsx');
+            return (new LabsExport($data, $from, $to))->download('lab-effluent.xlsx');
         } else if ($data === 'pr_pre_samples') {
-            return (new LabsExport($data))->download('lab-pr-pre.xlsx');
+            return (new LabsExport($data, $from, $to))->download('lab-pr-pre.xlsx');
         } else if ($data === 'pr_post_samples') {
-            return (new LabsExport($data))->download('lab-pr-post.xlsx');
+            return (new LabsExport($data, $from, $to))->download('lab-pr-post.xlsx');
+        } else if ($data === 'select_dates') {
+            return (new LabsExport($data, $from, $to))->download('lab-selected-dates.xlsx');
         } else {
             return back();
         }

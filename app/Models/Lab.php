@@ -16,8 +16,7 @@ class Lab extends Model
     {
         return empty($search) ? static::query()
             : static::where('id', 'like', '%'.$search.'%')
-                ->orWhere('eff_ph', 'like', '%'.$search.'%')
-                ->orWhere('eff_cond', 'like', '%'.$search.'%');
+                ->orWhere('lab_date', 'like', '%'.$search.'%');
     }
     
 }

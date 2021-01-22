@@ -6,7 +6,7 @@
 
         <div class="lg:flex lg:justify-between mb-12">
             <div class="lg:flex-1 bg-white rounded-lg p-4">
-             
+
                 <div class="grid grid-cols-2">
                     <div class="pb-12">
                         <label class="block">
@@ -283,16 +283,12 @@
             </div>
         </div>
 
-
-
-
-        <div class="block text-right py-2 pt-12 px-3 -mx-3 -mb-2 rounded-b-lg">
-            <a href="{{ url('/labs') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg mr-6">
+        <div class="text-left py-2 pt-16 px-3 -mx-3 -mb-2 rounded-b-lg">
+            <a href="{{ url('/labs') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg mr-6 mt-4">
                 Back
             </a>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
-                Save
-            </button>
+            <input type="submit" name="save" value="Save" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
+            <input type="submit" name="saveAndContinueToLab" value="Save & Enter Another Lab" class="mt-4 ml-6 ml-0-xs bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
         </div>
 
     </form>

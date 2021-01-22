@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\helpers\CollectionHelper;
 use App\Models\Lab;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,8 +13,8 @@ class LabsTable extends Component
     use WithPagination;
 
     public $search = '';
-    public $perPage = 20;
-    public $sortField = 'id';
+    public $perPage = 8;
+    public $sortField = 'lab_date';
     public $sortAsc = true;
     public $selected = [];
 
@@ -22,10 +24,12 @@ class LabsTable extends Component
     }
     
     public function render() {
-        return view('livewire.labs-table', [
-            'labs' => Lab::search($this->search)
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->simplePaginate($this->perPage),
-        ]);
+        $results = Lab::search($this->search)->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')->get()->groupBy(function($d) {
+            return Carbon::parse($d->lab_date)->format('F, Y');
+        });
+        
+        $labs = CollectionHelper::paginate($results, $this->perPage);
+
+        return view('livewire.labs-table', ['labs' => $labs]);
     }
 }

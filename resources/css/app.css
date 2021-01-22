@@ -3,6 +3,13 @@
 @import 'tailwindcss/utilities';
 
 @media (max-width: 767px) { 
+    .xs-grid-cols-none {
+      grid-template-columns: none;
+    }
+    .xs-p-2 {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
     .hidden-xs {
       display: none;
     }

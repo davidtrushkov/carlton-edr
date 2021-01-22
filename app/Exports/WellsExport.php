@@ -14,13 +14,14 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 
 
-class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFormatting, WithColumnWidths, WithStyles, WithEvents {
+class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFormatting, WithColumnWidths, WithStyles, WithEvents, ShouldAutoSize {
 
     use Exportable;
 
@@ -108,18 +109,11 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
 
 
     public function columnWidths(): array {
-        if($this->type === 'all_wells') {
-            return [
-                'G' => 16,
-                'H' => 16,
-            ];
-        } elseif ($this->type === 'select_dates') {
-            return [
-                'G' => 16,
-                'H' => 16,
-            ];
-        }
-    }
+        return [
+            'A' => 10,
+        ];
+}
+
 
 
     public function styles(Worksheet $sheet) {
