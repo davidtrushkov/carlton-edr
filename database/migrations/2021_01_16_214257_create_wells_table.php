@@ -16,13 +16,14 @@ class CreateWellsTable extends Migration
         Schema::create('wells', function (Blueprint $table) {
             $table->id();
             $table->string('well_id');
-            $table->float('temp');
-            $table->float('ph');
-            $table->float('do');
-            $table->float('cond');
-            $table->float('ntu');
-            $table->string('grab_time');
-            $table->timestamp('date');
+            $table->boolean('service')->default(0);
+            $table->float('temp')->nullable();
+            $table->float('ph')->nullable();
+            $table->float('do')->nullable();
+            $table->float('cond')->nullable();
+            $table->float('ntu')->nullable();
+            $table->string('grab_time')->nullable();
+            $table->timestamp('date')->nullable();
             $table->timestamps();
         });
     }

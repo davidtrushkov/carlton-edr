@@ -284,11 +284,11 @@
         </div>
 
         <div class="text-left py-2 pt-16 px-3 -mx-3 -mb-2 rounded-b-lg">
-            <a href="{{ url('/labs') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg mr-6 mt-4">
+            <a href="{{ url('/labs') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded leading-tight mr-6 mt-4">
                 Back
             </a>
-            <input type="submit" name="save" value="Save" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
-            <input type="submit" name="saveAndContinueToLab" value="Save & Enter Another Lab" class="mt-4 ml-6 ml-0-xs bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+            <input type="submit" name="save" value="Save" class="bg-teal-500 focus:outline-none focus:bg-teal-600 focus:border-gray-500 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-6 rounded leading-tight">
+            <input type="submit" name="saveAndContinueToLab" value="Save & Enter Another Lab" class="mt-4 ml-6 ml-0-xs bg-teal-700 focus:outline-none focus:bg-teal-600 focus:border-gray-600 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-6 rounded leading-tight">
         </div>
 
     </form>

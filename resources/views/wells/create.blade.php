@@ -53,6 +53,18 @@
                                 <div class="text-red-500 text-sm font-bold">{{ $errors->first('date') }}</div>
                             @endif
                         </div>
+
+                        <div>
+                            <label class="block float-left">
+                                <span class="text-sm text-gray-500 font-bold">Well Out of Service</span>
+                                <input type="checkbox" value="1"
+                                class="@if($errors->has('service'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                name="service" />
+                            </label>
+                            @if ($errors->has('service'))
+                                <div class="text-red-500 text-sm font-bold">{{ $errors->first('service') }}</div>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="text-gray-700 font-bold inline-block align-middle mb-2">Well Data</div><hr class="mb-6" />
@@ -133,11 +145,11 @@
                         </div>
 
                         <div class="text-left py-2 pt-16 px-3 -mx-3 -mb-2 rounded-b-lg">
-                            <a href="{{ url('/wells') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg mr-6 mt-4">
+                            <a href="{{ url('/wells') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded leading-tight mr-6 mt-4">
                                 Back
                             </a>
-                            <input type="submit" name="save" value="Save" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
-                            <input type="submit" name="saveAndContinue" value="Save & Enter Another Well" class="mt-4 ml-6 ml-0-xs bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+                            <input type="submit" name="save" value="Save" class="bg-teal-500 focus:outline-none focus:bg-teal-600 focus:border-gray-500 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-6 rounded leading-tight">
+                            <input type="submit" name="saveAndContinue" value="Save & Enter Another Well" class="mt-4 ml-6 ml-0-xs bg-teal-700 focus:outline-none focus:bg-teal-600 focus:border-gray-600 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-6 rounded leading-tight">
                         </div>
 
                     </div>

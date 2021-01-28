@@ -15,7 +15,7 @@
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
-        <a href="/wells/create" class="xs-mt block appearance-none text-center bg-blue-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-blue-700 focus:border-gray-500">
+        <a href="/wells/create" class="xs-mt block appearance-none text-center bg-teal-500 focus:outline-none focus:bg-teal-600 focus:border-gray-500 hover:bg-teal-400 border-teal-600 text-white py-4 px-4 rounded leading-tight">
             Enter Wells
         </a>
     </div>

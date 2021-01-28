@@ -23,7 +23,7 @@
                             <option value="select_dates">Select Dates</option>
                         </select>
                     
-                        <button type="submit" class="block appearance-none w-full text-center bg-green-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-green-700 focus:border-gray-500">
+                        <button type="submit" class="block appearance-none w-full text-center bg-teal-500 focus:outline-none focus:bg-teal-600 hover:bg-teal-400 border-teal-600 text-white py-3 px-4 rounded leading-tight font-bold">
                             Export to Excel
                         </button>
                     </div>

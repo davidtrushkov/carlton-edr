@@ -28,6 +28,9 @@
     .ml-0-xs {
       margin-left: 0;
     }
+    .xs-width-full {
+      width: 100%;
+    }
 }
 
 button,
@@ -35,7 +38,10 @@ input,
 optgroup,
 select,
 textarea {
-  padding: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 8px;
+  padding-left: 8px;
   line-height: inherit;
   color: inherit;
 }

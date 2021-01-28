@@ -1,7 +1,9 @@
 <?php
 
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -24,6 +26,10 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => DatabaseSeeder::class
+        ]);
     }
 
     /**

@@ -19,10 +19,10 @@
         </div>
     </div>
     <div class="grid grid-cols-2 xs-grid-cols-none gap-2 mb-8">
-        <a href="#" wire:click="deleteLabs" class="block text-center bg-red-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-red focus:border-gray-500">
+        <a href="#" wire:click="deleteLabs" class="block text-center bg-red-500 hover:bg-red-400 focus:bg-red-600 text-white font-bold py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-red">
             Delete
         </a>
-        <a href="/labs/create" class="block text-center bg-blue-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-blue-700 focus:border-gray-500">
+        <a href="/labs/create" class="block text-center bg-teal-500 focus:outline-none focus:bg-teal-600 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-4 rounded leading-tight">
             Enter Lab
         </a>
     </div>

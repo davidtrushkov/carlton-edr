@@ -2,8 +2,7 @@
     
 <!-- md:w-64 -->
     <div @click.away="open = false" 
-        class="flex flex-col w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" 
-        x-data="{ open: false }">
+        class="flex flex-col w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
 
         <div class="flex-shrink-0 py-4 flex flex-row items-center justify-between md:hidden">
             <!-- <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
@@ -17,13 +16,13 @@
             </button>
         </div>
         <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block pb-4 md:pb-0 md:overflow-y-auto">
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ Route::is('dashboard') ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('dashboard') }}">
+            <a class="block px-4 py-2 mt-2 text-sm font-bold text-gray-800 {{ Route::is('dashboard') ? 'bg-teal-100' : 'bg-transparent' }} rounded dark-mode:bg-transparent dark-mode:hover:bg-teal-600 dark-mode:focus:bg-teal-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-teal-200 hover:text-teal-900 focus:text-teal-900 hover:bg-teal-200 focus:bg-teal-200 focus:outline-none" href="{{ route('dashboard') }}">
                     Dashboard
                 </a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ Route::is('labs') ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('labs') }}">
+            <a class="block px-4 py-2 mt-2 text-sm font-bold text-gray-800 {{ Route::is('labs') ? 'bg-teal-100' : 'bg-transparent' }} rounded dark-mode:bg-teal-700 dark-mode:hover:bg-teal-600 dark-mode:focus:bg-teal-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-teal-200 hover:text-teal-900 focus:text-teal-900 hover:bg-teal-200 focus:bg-teal-200 focus:outline-none" href="{{ route('labs') }}">
                 Labs
             </a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ Route::is('wells') ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('wells') }}">
+            <a class="block px-4 py-2 mt-2 text-sm font-bold text-gray-800 {{ Route::is('wells') ? 'bg-teal-100' : 'bg-transparent' }} rounded dark-mode:bg-teal-700 dark-mode:hover:bg-teal-600 dark-mode:focus:bg-teal-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-teal-200 hover:text-teal-900 focus:text-teal-900 hover:bg-teal-200 focus:bg-teal-200 focus:outline-none" href="{{ route('wells') }}">
                 Wells
             </a>
             <!-- <div @click.away="open = false" class="relative" x-data="{ open: false }">

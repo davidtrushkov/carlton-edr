@@ -1,19 +1,20 @@
 <x-app-layout>
 
     <div class="container mx-auto pt-12 pb-12">
-        @if(session()->has('success'))
-            <div class="flex pb-6">
-                <div class="bg-green-300 border red-green-600 text-green-800 pl-3 pr-3 py-3 rounded inline-flex" role="alert">
-                    <span class="block sm:inline">{{ session('success') }}</span>
-                </div>
-            </div>
-        @endif
-
         <div class="lg:flex lg:mx-4 lg:justify-between">
             <div class="lg:w-64 bg-white md:mb-12 lg:m-0 rounded-lg not-rounded-xs p-4 xs-p-2 border-bottom-xs">
                 @include('components.sidebar')
             </div>
-            <div class="lg:flex-1 lg:mx-4 bg-white rounded-lg not-rounded-xs p-4 xs-p-2">       
+            <div class="lg:flex-1 lg:mx-4 bg-white rounded-lg not-rounded-xs p-4 xs-p-2"> 
+
+                @if(session()->has('success'))
+                    <div class="flex pb-6">
+                        <div class="bg-green-300 border red-green-600 text-green-800 pl-3 pr-3 py-3 rounded inline-flex" role="alert">
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    </div>
+                @endif      
+
                 <livewire:wells-table></livewire:labs-table>
                 <hr class="mb-10">
 
@@ -24,7 +25,7 @@
                             <option value="all_wells">All Well Data</option>
                             <option value="select_dates">Select Dates</option>
                         </select>         
-                        <button type="submit" class="block appearance-none w-full text-center bg-green-500 border border-gray-200 text-white py-3 px-4 rounded leading-tight focus:outline-none focus:bg-green-700 focus:border-gray-500">
+                        <button type="submit" class="block appearance-none w-full text-center bg-teal-500 focus:outline-none focus:bg-teal-600 focus:border-gray-500 hover:bg-teal-400 border-teal-600 text-white py-3 px-4 rounded leading-tight">
                             Export to Excel
                         </button>         
                     </div>

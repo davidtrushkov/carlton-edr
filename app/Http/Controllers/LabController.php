@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lab;
 use App\Exports\LabsExport;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
@@ -99,7 +100,7 @@ class LabController extends Controller
 
     public function update(Request $request, $id) {
     	$this->validate($request, [
-            'lab_date' => 'required',
+            'lab_date' => 'required|unique:labs,lab_date,' . $id,
             'eff_ph' => 'required|numeric',
             'eff_cl2t' => 'required|numeric',
             'eff_cl2f' => 'required|numeric',

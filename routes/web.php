@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Lab;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +34,9 @@ Route::post('/wells/post', [\App\Http\Controllers\WellController::class, 'store'
 Route::get('/wells/edit/{id}', [\App\Http\Controllers\WellController::class, 'edit'])->name('wellsEdit');
 Route::post('/wells/update/{id}', [\App\Http\Controllers\WellController::class, 'update']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware(['auth:sanctum', 'verified']);
+Route::post('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');

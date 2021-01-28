@@ -54,13 +54,14 @@ class WellController extends Controller
     public function store(Request $request) {
     	request()->validate([
             'well_id' => 'required',
-            'temp' => 'required',
-            'ph' => 'required',
-            'do' => 'required',
-            'cond' => 'required',
-            'ntu' => 'required',
-            'date' => 'required',
-            'grab_time' => 'required'
+            'service' => '',
+            'temp' => 'required_without:service',
+            'ph' => 'required_without:service',
+            'do' => 'required_without:service',
+            'cond' => 'required_without:service',
+            'ntu' => 'required_without:service',
+            'date' => 'required_without:service',
+            'grab_time' => 'required_without:service'
         ]);
 
         // Get the date from the "datepicker" in the form
@@ -95,17 +96,21 @@ class WellController extends Controller
     public function update($id, Request $request) {
     	request()->validate([
             'well_id' => 'required',
-            'temp' => 'required',
-            'ph' => 'required',
-            'do' => 'required',
-            'cond' => 'required',
-            'ntu' => 'required',
-            'date' => 'required',
-            'grab_time' => 'required'
+            'service' => '',
+            'temp' => 'required_without:service',
+            'ph' => 'required_without:service',
+            'do' => 'required_without:service',
+            'cond' => 'required_without:service',
+            'ntu' => 'required_without:service',
+            'date' => 'required_without:service',
+            'grab_time' => 'required_without:service'
         ]);
 
         $well = Well::findOrFail($id);
 
+        if($request->service === null) {
+            $well->service = 0;
+        }
         
         // Get the date from the "datepicker" in the form
         $time = new DateTime(request('date'));
@@ -123,6 +128,7 @@ class WellController extends Controller
             session()->flash('error_message', 'Well ' . request('well_id') . ' has already been inserted for the month you chose');
             return back()->withInput();
         }
+       
         
         $well->update($request->all());
 

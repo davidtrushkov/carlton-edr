@@ -13,7 +13,7 @@ class LabsTable extends Component
     use WithPagination;
 
     public $search = '';
-    public $perPage = 8;
+    public $perPage = 20;
     public $sortField = 'lab_date';
     public $sortAsc = true;
     public $selected = [];

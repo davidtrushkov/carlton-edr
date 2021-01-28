@@ -195,27 +195,35 @@ return [
         // For Wells
         'temp' => [
             'required' => 'Tempature required',
+            'required_without' => 'Tempature required',
         ],
         'ph' => [
             'required' => 'ph required',
+            'required_without' => 'ph required',
         ],
         'do' => [
             'required' => 'D.O. required',
+            'required_without' => 'D.O. required',
         ],
         'cond' => [
             'required' => 'Conductivity required',
+            'required_without' => 'Conductivity required',
         ],
         'ntu' => [
             'required' => 'NTU required',
+            'required_without' => 'NTU required',
         ],
         'date' => [
             'required' => 'Date sampled required',
+            'required_without' => 'Date sampled required',
         ],
         'grab_time' => [
             'required' => 'Sample time required',
+            'required_without' => 'Sample time required',
         ],
         'well_id' => [
             'required' => 'Select a well',
+            'required_without' => 'Select a well',
         ],
     ],
 
