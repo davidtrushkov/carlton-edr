@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Folder;
+use App\Models\File;
+use App\Models\Obj;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
@@ -38,4 +41,32 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+   // Run this "booted" function when a new team is created.
+   public static function booted() {
+    // When this Team is created, create a root folder for a team
+    static::created(function ($team) {
+        // Access the "objects" relationship, and make in memory
+        $object = $team->objects()->make(['parent_id' => null]);
+
+        // Access the "objectable" poloymorphic relationship [Located in Obj model], then "associate" a newly created folder with the team name
+        // -- In other words. this will create a row in the "folders" table with the team `name`, `uuid` and `team_id`
+        $object->objectable()->associate($team->folders()->create(['name' => $team->name]));
+
+        // Save the "object" to database
+        $object->save();
+    });
+}
+
+    public function objects() {
+        return $this->hasMany(Obj::class);
+    }
+
+    public function files() {
+        return $this->hasMany(File::class);
+    }
+
+    public function folders() {
+        return $this->hasMany(Folder::class);
+    }
 }

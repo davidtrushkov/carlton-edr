@@ -25,6 +25,9 @@
             <a class="block px-4 py-2 mt-2 text-sm font-bold text-gray-800 {{ Route::is('wells') ? 'bg-teal-100' : 'bg-transparent' }} rounded dark-mode:bg-teal-700 dark-mode:hover:bg-teal-600 dark-mode:focus:bg-teal-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-teal-200 hover:text-teal-900 focus:text-teal-900 hover:bg-teal-200 focus:bg-teal-200 focus:outline-none" href="{{ route('wells') }}">
                 Wells
             </a>
+            <a class="block px-4 py-2 mt-2 text-sm font-bold text-gray-800 {{ Route::is('files') ? 'bg-teal-100' : 'bg-transparent' }} rounded dark-mode:bg-teal-700 dark-mode:hover:bg-teal-600 dark-mode:focus:bg-teal-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-teal-200 hover:text-teal-900 focus:text-teal-900 hover:bg-teal-200 focus:bg-teal-200 focus:outline-none" href="{{ route('files') }}">
+                Files
+            </a>
             <!-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                     <span>Dropdown</span>

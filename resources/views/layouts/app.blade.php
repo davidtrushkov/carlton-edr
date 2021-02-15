@@ -12,16 +12,19 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <!-- Filepond stylesheet -->
+        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
 
         @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+        <!-- Load FilePond library -->
+        <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
         
     </head>
     <body class="font-sans antialiased">
@@ -35,7 +38,6 @@
                 </div>
             </header> -->
 
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
@@ -44,7 +46,5 @@
         @stack('modals')
 
         @livewireScripts
-
-
     </body>
 </html>
