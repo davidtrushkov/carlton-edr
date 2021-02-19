@@ -20,7 +20,9 @@ class LabsTable extends Component
 
 
     public function deleteLabs() {
-        Lab::destroy($this->selected);
+        if(auth()->user()->admin == 1){
+            Lab::destroy($this->selected);
+        }
     }
     
     public function render() {

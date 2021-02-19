@@ -19,9 +19,11 @@
         </div>
     </div>
     <div class="grid grid-cols-2 xs-grid-cols-none gap-2 mb-8">
+        @if (auth()->user()->admin == 1)
         <a href="#" wire:click="deleteLabs" class="block text-center bg-red-500 hover:bg-red-400 focus:bg-red-600 text-white font-bold py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-red">
             Delete
         </a>
+        @endif
         <a href="/labs/create" class="block text-center bg-teal-500 focus:outline-none focus:bg-teal-600 hover:bg-teal-400 border-teal-600 text-white font-bold py-3 px-4 rounded leading-tight">
             Enter Lab
         </a>
@@ -40,9 +42,11 @@
                     <table class="table-auto w-full mb-6" x-show="show">
                         <thead>
                             <tr>
+                                @if (auth()->user()->admin == 1)
                                 <th class="px-4 py-2 text-left text-sm">
                                     <img src="{{ asset('/svg/icons8-trash-can.svg') }}" width="20px" />
                                 </th>
+                                @endif
                                 <th class="px-4 py-2 text-left text-sm">ID</th>
                                 <th class="px-4 py-2 text-left text-sm">Lab Date</th>
                                 <th class="px-4 py-2 text-left text-sm">Action</th>
@@ -50,9 +54,11 @@
                         </thead>
                         @foreach($dates as $date)  
                             <tbody>
+                                @if (auth()->user()->admin == 1)
                                 <td class="border px-4 py-2">
                                     <input wire:model="selected" value="{{ $date->id }}" type="checkbox">
                                 </td>
+                                @endif
                                 <td class="border px-4 py-2 text-sm">{{ $date->id }}</td>
                                 <td class="border px-4 py-2 text-sm">{{ $date->lab_date->format('m-d-Y') }}</td>
                                 <td class="py-2 border px-4 text-sm">
