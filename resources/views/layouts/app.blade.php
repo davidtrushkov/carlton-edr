@@ -38,6 +38,16 @@
                 </div>
             </header> -->
 
+            <div class="max-w-md mx-auto mt-9">
+                @if(session()->has('error_message'))
+                    <div class="flex pb-6">
+                        <div class="bg-red-300 border red-green-600 text-red-800 pl-3 pr-3 py-2 rounded inline-flex" role="alert">
+                            <span class="block sm:inline text-sm">{{ session('error_message') }}</span>
+                        </div>
+                    </div>
+                @endif
+            </div>
+
             <main>
                 {{ $slot }}
             </main>

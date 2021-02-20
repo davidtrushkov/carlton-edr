@@ -5,16 +5,6 @@
 
             <div class="lg:flex lg:justify-between mb-12">
                 <div class="lg:flex-1 bg-white rounded-lg p-4">
-
-
-                    @if(session()->has('error_message'))
-                        <div class="flex pb-6">
-                            <div class="bg-red-300 border red-green-600 text-red-800 pl-3 pr-3 py-2 rounded inline-flex" role="alert">
-                                <span class="block sm:inline text-sm">{{ session('error_message') }}</span>
-                            </div>
-                        </div>
-                    @endif
-
                     <div class="text-xl font-black mb-12">
                         Editing Well {{ $well->well_id }} <hr />
                     </div>

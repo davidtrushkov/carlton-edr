@@ -18,15 +18,20 @@ class CreateTeam implements CreatesTeams
      */
     public function create($user, array $input)
     {
-        Gate::forUser($user)->authorize('create', Jetstream::newTeamModel());
+        if (auth()->user()->admin == 1){
+            Gate::forUser($user)->authorize('create', Jetstream::newTeamModel());
 
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-        ])->validateWithBag('createTeam');
+            Validator::make($input, [
+                'name' => ['required', 'string', 'max:255'],
+            ])->validateWithBag('createTeam');
 
-        return $user->ownedTeams()->create([
-            'name' => $input['name'],
-            'personal_team' => false,
-        ]);
+            return $user->ownedTeams()->create([
+                'name' => $input['name'],
+                'personal_team' => false,
+            ]);
+        } else {
+            session()->flash('error_message', 'Can not create teams.');
+            return back();
+        }
     }
 }

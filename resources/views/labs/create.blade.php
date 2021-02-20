@@ -19,15 +19,6 @@
                     </div>
                 </div>
 
-                @if(session()->has('error_message'))
-                    <div class="flex pb-6">
-                        <div class="bg-red-300 border red-green-600 text-red-800 pl-4 pr-8 py-3 rounded inline-flex" role="alert">
-                            <strong class="font-bold">Error!</strong>
-                            <span class="block sm:inline pl-6">{{ session('error_message') }}</span>
-                        </div>
-                    </div>
-                @endif
-
                     
                 <div class="text-gray-700 font-bold inline-block align-middle mb-2">Effluent</div><hr class="mb-6" />
                 <div class="grid md:grid-cols-8 sm:grid-cols-4 gap-4">

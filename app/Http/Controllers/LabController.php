@@ -5,19 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Lab;
 use App\Exports\LabsExport;
 use Carbon\Carbon;
-use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
 {
     
     public function index() {
-    	
-        //$labs = Lab::latest()->get();
-
-        //$labCOND = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('eff_cond');
-        //$labCONDDay = Lab::orderBy('lab_date')->where('lab_date', '>', Carbon::now()->subDays(300))->pluck('lab_date')->map->format('m-d');
-
     	return view('labs.labs');
     }
 
@@ -90,12 +83,12 @@ class LabController extends Controller
         }
     }
 
+
     public function edit($id) { 
         $lab = Lab::findOrFail($id);
         
     	return view('labs.edit', ['lab' => $lab]);
     }
-
 
 
     public function update(Request $request, $id) {

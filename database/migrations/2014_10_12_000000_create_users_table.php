@@ -28,9 +28,9 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Artisan::call('db:seed', [
-            '--class' => DatabaseSeeder::class
-        ]);
+        // Artisan::call('db:seed', [
+        //     '--class' => DatabaseSeeder::class
+        // ]);
     }
 
     /**
