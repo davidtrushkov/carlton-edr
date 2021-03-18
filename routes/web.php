@@ -43,6 +43,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/files', [\App\Http\Controllers\FileController::class, 'index'])->name('files');
     Route::get('/files/{file}', [FileController::class, 'download'])->name('files.download');
 
+    Route::get('/edrs', [\App\Http\Controllers\EDRDataController::class, 'index'])->name('edrs');
+    Route::get('/edrs/{id}', [\App\Http\Controllers\EDRDataController::class, 'getEDR']);
+    Route::get('/edr/create', [\App\Http\Controllers\EDRDataController::class, 'create'])->name('edrsCreate');
+    Route::post('/edr/post', [\App\Http\Controllers\EDRDataController::class, 'store']);
+    Route::get('/edrs/edit/{id}', [\App\Http\Controllers\EDRDataController::class, 'edit'])->name('edrsEdit');
+    Route::post('/edrs/update/{id}', [\App\Http\Controllers\EDRDataController::class, 'update']);
+    Route::post('/edrs/export/{id}', [\App\Http\Controllers\EDRDataController::class, 'export'])->name('EDRExport');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

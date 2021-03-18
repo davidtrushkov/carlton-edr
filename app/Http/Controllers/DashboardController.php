@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EDR;
 use App\Models\Lab;
 use App\Models\Well;
 use Carbon\Carbon;
@@ -26,6 +27,13 @@ class DashboardController extends Controller
         $labPostCL2T = Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('post_cl2t');
         $labDates =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck($labDate)->map->format('m-y');
 
+ 
+        $edrNum2 =  EDR::where('edr_id', 2)->pluck('run_hours')->max();
+        $edrNum4 =  EDR::where('edr_id', 4)->pluck('run_hours')->max();
+        $edrNum6 =  EDR::where('edr_id', 6)->pluck('run_hours')->max();
+        $edrNum8 =  EDR::where('edr_id', 8)->pluck('run_hours')->max();
+        $edrNum10 =  EDR::where('edr_id', 10)->pluck('run_hours')->max();
+        
         if(request('wellId')) {
             $wellID = request('wellId');
             $wellCOND =  Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->where('well_id', '=', $wellID)->where('service', false)->limit($limit)->pluck('cond');
@@ -44,7 +52,12 @@ class DashboardController extends Controller
             'labDates' => $labDates,
             'wellCOND' => $wellCOND,
             'wellNTU' => $wellNTU,
-            'wellDates' => $wellDates
+            'wellDates' => $wellDates,
+            'edrNum2' => $edrNum2,
+            'edrNum4' => $edrNum4,
+            'edrNum6' => $edrNum6,
+            'edrNum8' => $edrNum8,
+            'edrNum10' => $edrNum10
         ]);
     }
 

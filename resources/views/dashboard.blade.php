@@ -18,6 +18,7 @@
                             @include('components.dashboard.well-ntu')
                         </div>
 
+                        @include('components.dashboard.edr-run-hours')
                     </div>
                 </div>
             </div>
