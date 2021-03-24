@@ -57,9 +57,18 @@
                                         </div>
                                 @endforeach
                             </div>
+
+                            @if(auth()->user()->admin === 1)
+                            <div>
+                                <livewire:show-users-admin />    
+                            </div>
+                            @endif
+
                         </div>
                     @endif
                 </x-slot>
+
+      
 
                 <x-slot name="actions">
                     <x-jet-action-message class="mr-3" on="saved">
