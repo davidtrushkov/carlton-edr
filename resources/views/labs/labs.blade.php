@@ -17,6 +17,7 @@
                     <div class="grid grid-cols-2 xs-grid-cols-none gap-4"> 
                         <select name="excel_data" id="selectedDates" class="block bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             <option value="all_samples">All Samples</option>
+                            <option value="product_samples">Product Samples</option>
                             <option value="eff_samples">Efluent Samples</option>
                             <option value="pr_pre_samples">PR Pre Samples</option>
                             <option value="pr_post_samples">PR Post Samples</option>

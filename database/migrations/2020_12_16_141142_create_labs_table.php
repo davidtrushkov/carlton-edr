@@ -38,6 +38,15 @@ class CreateLabsTable extends Migration
             $table->float('post_turb');
             $table->float('post_po4');
 
+            $table->float('product_ph');
+            $table->float('product_cond');
+            $table->float('product_cl2t');
+            $table->float('product_cl2f');
+            $table->float('product_nh4t');
+
+            $table->float('product_turb');
+            $table->float('product_po4');
+
             $table->date('lab_date')->unique();
             $table->timestamps();
         });

@@ -46,6 +46,14 @@ class LabFactory extends Factory
             'post_turb' =>  $this->faker->randomFloat(2, .04, .15),
             'post_po4' => $this->faker->randomFloat(2, 1.70, 2.30), 
             'lab_date' => $this->faker->unique()->dateTimeBetween('-24 months', 'now'),
+
+            'product_ph' => $this->faker->randomFloat(2, 7.6, 8.3), 
+            'product_cond' => $this->faker->numberBetween(480, 570),
+            'product_cl2t' => $this->faker->randomFloat(1, 2.8, 4.8),
+            'product_cl2f' => $this->faker->randomFloat(2, .04, .30),
+            'product_nh4t' => $this->faker->randomFloat(2, .75, 1.40),
+            'product_turb' => $this->faker->randomFloat(2, .02, .15),
+            'product_po4' => $this->faker->randomFloat(2, 1.60, 2.60), 
             //'lab_date' => date('Y-m-d', strtotime('now -' . $this->faker->unique()->numberBetween(1, 50) . ' months')),
             //'lab_date' => fn () => now()->subDays(rand(0, 1000)),
         ];

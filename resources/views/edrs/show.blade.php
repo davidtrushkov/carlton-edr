@@ -35,7 +35,23 @@
 
                 <livewire:e-d-r-table></livewire:e-d-r-table>
 
-                <hr class="mb-10">
+
+                <form action="/edrs/import/{{ $edrID->edr_id }}" method="post" enctype="multipart/form-data">
+                 @csrf
+
+                    <label class="block mb-2">
+                        <span class="text-sm text-gray-500 font-bold">Import File</span>
+                        <input type="file" name="file" class="p-2 mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                    </label>
+
+                    <button type="submit" class="block appearance-none w-full text-center bg-teal-500 focus:outline-none focus:bg-teal-600 hover:bg-teal-400 border-teal-600 text-white py-3 px-4 rounded leading-tight font-bold">
+                        Import File
+                    </button>
+
+                </form>
+
+
+                <hr class="mb-10 mt-10">
 
                 <form action="/edrs/export/{{ $edrID->edr_id }}" method="post">
                     @csrf

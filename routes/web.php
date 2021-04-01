@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edrs/edit/{id}', [\App\Http\Controllers\EDRDataController::class, 'edit'])->name('edrsEdit');
     Route::post('/edrs/update/{id}', [\App\Http\Controllers\EDRDataController::class, 'update']);
     Route::post('/edrs/export/{id}', [\App\Http\Controllers\EDRDataController::class, 'export'])->name('EDRExport');
+    Route::post('/edrs/import/{id}', [\App\Http\Controllers\EDRDataController::class, 'import'])->name('EDRImport');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

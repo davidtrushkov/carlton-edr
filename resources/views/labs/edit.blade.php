@@ -116,6 +116,93 @@
         </div>
 
 
+        <div class="lg:flex lg:justify-between mb-12">
+            <div class="lg:flex-1 bg-white rounded-lg p-4">
+
+                <div class="text-gray-700 font-bold inline-block align-middle mb-2">Product</div><hr class="mb-6" />
+                <div class="grid md:grid-cols-8 sm:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block">
+                            <span class="text-sm text-gray-500 font-bold">pH</span>
+                            <input type="text" value="{{ old('product_ph') ? old('product_ph') : $lab->product_ph }}"
+                            class="@if($errors->has('product_ph'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="pH" name="product_ph" />
+                        </label>
+                        @if ($errors->has('product_ph'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_ph') }}</div>
+                        @endif
+                    </div>
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">CLT-T</span>
+                            <input type="text" value="{{ old('product_cl2t') ? old('product_cl2t') : $lab->product_cl2t }}"
+                            class="@if($errors->has('product_cl2t'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="Cl2-T" name="product_cl2t" />
+                        </label>
+                        @if ($errors->has('product_cl2t'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_cl2t') }}</div>
+                        @endif
+                    </div>
+
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">CLT-F</span>
+                            <input type="text" value="{{ old('product_cl2f') ? old('product_cl2f') : $lab->product_cl2f }}" 
+                            class="@if($errors->has('product_cl2f'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="Cl2-F" name="product_cl2f" />
+                        </label>
+                        @if ($errors->has('product_cl2f'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_cl2f') }}</div>
+                        @endif
+                    </div>
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">NH4-T</span>
+                            <input type="text" value="{{ old('product_nh4t') ? old('product_nh4t') : $lab->product_nh4t }}" 
+                            class="@if($errors->has('product_nh4t'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="NH4-T" name="product_nh4t" />
+                        </label>
+                        @if ($errors->has('product_nh4t'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_nh4t') }}</div>
+                        @endif
+                    </div>
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">PO4</span>
+                            <input type="text" value="{{ old('product_po4') ? old('product_po4') : $lab->product_po4 }}" 
+                            class="@if($errors->has('product_po4'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="PO4" name="product_po4" />
+                        </label>
+                        @if ($errors->has('product_po4'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_po4') }}</div>
+                        @endif
+                    </div>
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">COND</span>
+                            <input type="text" value="{{ old('product_cond') ? old('product_cond') : $lab->product_cond }}" 
+                            class="@if($errors->has('product_cond'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="COND" name="product_cond" />
+                        </label>
+                        @if ($errors->has('product_cond'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_cond') }}</div>
+                        @endif
+                    </div>
+                    <div>
+                        <label class="block">
+                        <span class="text-sm text-gray-500 font-bold">TURB</span>
+                            <input type="text" value="{{ old('product_turb') ? old('product_turb') : $lab->product_turb }}" 
+                            class="@if($errors->has('product_turb'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="TURB" name="product_turb" />
+                        </label>
+                        @if ($errors->has('product_turb'))
+                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_turb') }}</div>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
 

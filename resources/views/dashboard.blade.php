@@ -11,14 +11,24 @@
 
                         @include('components.dashboard.form')
    
-                        @include('components.dashboard.total-chlorine-chart')
-
+                        @if(!request('wellId')) 
+                            @include('components.dashboard.total-chlorine-chart')
+                        @endif
+                        
                         <div class="grid grid-cols-2 xs-grid-cols-none gap-4">
                             @include('components.dashboard.well-cond')
                             @include('components.dashboard.well-ntu')
                         </div>
 
-                        @include('components.dashboard.edr-run-hours')
+                        <div class="grid grid-cols-2 xs-grid-cols-none gap-4">
+                            @include('components.dashboard.well-do')
+                            @include('components.dashboard.well-ph')
+                        </div>
+
+                        @if(!request('wellId')) 
+                            @include('components.dashboard.edr-run-hours')
+                        @endif
+
                     </div>
                 </div>
             </div>

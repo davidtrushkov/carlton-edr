@@ -44,6 +44,14 @@ class LabController extends Controller
             'post_cond' => 'required|numeric',
             'post_po4' => 'required|numeric',
             'post_turb' => 'required|numeric',
+
+            'product_ph' => 'required|numeric',
+            'product_cl2t' => 'required|numeric',
+            'product_cl2f' => 'required|numeric',
+            'product_nh4t' => 'required|numeric',
+            'product_po4' => 'required|numeric',
+            'product_cond' => 'required|numeric',
+            'product_turb' => 'required|numeric',
         ]);
         
         $lab = Lab::create([
@@ -70,6 +78,14 @@ class LabController extends Controller
             'post_cond' => request('post_cond'),
             'post_po4' => request('post_po4'),
             'post_turb' => request('post_turb'),
+
+            'product_ph' => request('product_ph'),
+            'product_cl2t' => request('product_cl2t'),
+            'product_cl2f' => request('product_cl2f'),
+            'product_nh4t' => request('product_nh4t'),
+            'product_po4' => request('product_po4'),
+            'product_cond' => request('product_cond'),
+            'product_turb' => request('product_turb'),
         ]);
         
     	$lab->save();
@@ -115,6 +131,14 @@ class LabController extends Controller
             'post_cond' => 'required|numeric',
             'post_po4' => 'required|numeric',
             'post_turb' => 'required|numeric',
+
+            'product_ph' => 'required|numeric',
+            'product_cl2t' => 'required|numeric',
+            'product_cl2f' => 'required|numeric',
+            'product_nh4t' => 'required|numeric',
+            'product_po4' => 'required|numeric',
+            'product_cond' => 'required|numeric',
+            'product_turb' => 'required|numeric',
         ]);
 
         $lab = Lab::findOrFail($id);
@@ -143,6 +167,14 @@ class LabController extends Controller
             'post_cond' => request('post_cond'),
             'post_po4' => request('post_po4'),
             'post_turb' => request('post_turb'),
+
+            'product_ph' => request('product_ph'),
+            'product_cl2t' => request('product_cl2t'),
+            'product_cl2f' => request('product_cl2f'),
+            'product_nh4t' => request('product_nh4t'),
+            'product_po4' => request('product_po4'),
+            'product_cond' => request('product_cond'),
+            'product_turb' => request('product_turb'),
         ]);
 
 	    return redirect('/labs');
@@ -156,6 +188,8 @@ class LabController extends Controller
 
         if ($data === 'all_samples') { 
             return (new LabsExport($data, $from, $to))->download('all-lab.xlsx');
+        } else if ($data === 'product_samples') {
+            return (new LabsExport($data, $from, $to))->download('lab-product.xlsx');
         } else if ($data === 'eff_samples') {
             return (new LabsExport($data, $from, $to))->download('lab-effluent.xlsx');
         } else if ($data === 'pr_pre_samples') {

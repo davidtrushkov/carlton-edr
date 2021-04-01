@@ -35,7 +35,7 @@ class EdrsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
     
     public function query() {
         if($this->type === 'all_data') {
-            return EDR::select('edr_id', 'date', 'polarity', 'run_hours', 'feed_cl2', 'feed_ph', 'feed_cond', 'feed_temp', 'product_cond', 'concen_cond', 'electrode_inlet_ph',
+            return EDR::select('edr_id', 'date', 'polarity', 'run_hours', 'feed_cl2', 'feed_ph', 'feed_temp', 'feed_cond', 'product_cond', 'concen_cond', 'electrode_inlet_ph',
                                 'post_cart_psi', 'stack_inlet_psi', 'inlet_press_dif', 'outlet_press_dif', 'dil_stack_outlet_psi', 'conc_stack_inlet_psi', 'feed_inlet_flow', 
                                 'dil_outlet_flow', 'cbd_flow', 'conc_pump_kw', 'conc_pump_speed', 'feed_valve_pos', 'electrode_dosage', 'antiscalant_dosage', 'osp_time')
                                 ->where('edr_id', '=', $this->EDid)->orderBy('date', 'desc');
@@ -55,8 +55,8 @@ class EdrsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 $edr->run_hours,
                 $edr->feed_cl2,
                 $edr->feed_ph,
-                $edr->feed_cond,
                 $edr->feed_temp,
+                $edr->feed_cond,
                 $edr->product_cond,
                 $edr->concen_cond,
                 $edr->electrode_inlet_ph,
@@ -86,7 +86,7 @@ class EdrsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
 
         if($this->type === 'all_data' || $this->type === 'select_dates') {
             return [
-                'Unit #',
+                'Unit',
                 'Date Sampled',
                 'Polarity',
                 'Life Time Run Hours',
@@ -107,8 +107,8 @@ class EdrsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 'Dilute Outlet Product Flow',
                 'CBD Flow',
                 'Concentrate Pump kW',
-                'Concentrate Pump Speed %',
-                'Feed Valve Position %', 
+                'Concentrate Pump Speed',
+                'Feed Valve Position', 
                 'Electrode Acid Dosage',
                 'Antiscalant Dosage',
                 'Off Spec Time'

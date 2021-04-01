@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\EdrsExport;
+use App\Imports\EdrsImport;
 use App\Models\EDR;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EDRDataController extends Controller
 {
@@ -185,6 +187,16 @@ class EDRDataController extends Controller
         } else {
             return back();
         }
+    }
+
+
+    public function import(Request $request) 
+    {
+        $file = $request->file('file');
+
+        Excel::import(new EdrsImport, $file);
+        
+        return back()->with('success', 'Excel file imported successfully!');
     }
 
 }
