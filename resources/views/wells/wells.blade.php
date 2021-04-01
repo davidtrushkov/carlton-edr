@@ -24,6 +24,22 @@
                         <select name="well_data" id="colorselector" class="block bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             <option value="all_wells">All Well Data</option>
                             <option value="select_dates">Select Dates</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="59">59</option>
+                            <option value="60">60</option>
                         </select>         
                         <button type="submit" class="block appearance-none w-full text-center bg-teal-500 focus:outline-none focus:bg-teal-600 focus:border-gray-500 hover:bg-teal-400 border-teal-600 text-white py-3 px-4 rounded leading-tight">
                             Export to Excel

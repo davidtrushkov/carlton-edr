@@ -146,7 +146,7 @@ class WellController extends Controller
         } elseif ($data === 'select_dates') {
             return (new WellsExport($data, $from, $to))->download('production-wells-dates.xlsx');
          } else {
-            return back();
+            return (new WellsExport($data, $from, $to))->download('production-well-' . $data .'.xlsx');
         }
     }
 

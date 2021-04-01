@@ -38,6 +38,8 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
             return Well::query()->orderBy('date', 'desc');
         } elseif ($this->type === 'select_dates') {
             return Well::query()->whereBetween('date', [$this->from, $this->to]);  
+        } else {
+            return Well::query()->where('well_id', '=', $this->type)->orderBy('date', 'desc');;  
         }
     }
 
@@ -57,6 +59,16 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
         } elseif($this->type === 'select_dates') {
             return [
                 'Well ' . $well->well_id,
+                $well->temp,
+                $well->ph,
+                $well->do,
+                $well->cond,
+                $well->ntu,
+                $well->grab_time,
+                Date::dateTimeToExcel(Carbon::parse($well->date)),
+            ];
+        } else {
+            return [
                 $well->temp,
                 $well->ph,
                 $well->do,
@@ -91,6 +103,16 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
                 'Collection Time',
                 'Collection Date'
             ];
+        } else {
+            return [
+                'Temp',
+                'pH',
+                'D.O.',
+                'Cond',
+                'NTU',
+                'Collection Time',
+                'Collection Date'
+            ];
         } 
     }
 
@@ -103,6 +125,10 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
         } elseif($this->type === 'select_dates') {
             return [
                 'H' => NumberFormat::FORMAT_DATE_XLSX14,
+            ];
+        } else {
+            return [
+                'G' => NumberFormat::FORMAT_DATE_XLSX14,
             ];
         }
     }
@@ -137,6 +163,8 @@ class WellsExport implements FromQuery, WithMapping, WithHeadings, WithColumnFor
                     $event->sheet->setCellValue('A1', 'Production Well Results');
                 } elseif ($this->type === 'select_dates') {
                     $event->sheet->setCellValue('A1', 'Production Well Results With Dates: '. $this->from->format('m-d-Y') .' / '. $this->to->format('m-d-Y'));
+                } else {
+                    $event->sheet->setCellValue('A1', 'Well # ' . $this->type . ' Production Results');
                 }
             },
             AfterSheet::class  => function(AfterSheet $event) {
