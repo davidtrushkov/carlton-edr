@@ -87,7 +87,6 @@
                             });
                         });
                 </script>
-
             </div>
         </div>
     </div>

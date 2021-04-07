@@ -42,11 +42,11 @@ class DashboardController extends Controller
             $wellPH =    Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->where('well_id', '=', $wellID)->where('service', false)->limit($limit)->pluck('ph');
             $wellDates = Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->where('well_id', '=', $wellID)->where('service', false)->limit($limit)->pluck($WellDate)->map->format('m-y');
         } else {
-            $wellCOND =  Well::orderBy($WellDate)->where($WellDate, '>', Carbon::now()->subMonth())->where('service', false)->limit($limit)->pluck('cond');
+            $wellCOND =  Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->where('service', false)->limit($limit)->pluck('cond');
             $wellNTU =   Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->limit($limit)->where('service', false)->pluck('ntu');
             $wellDO =   Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->limit($limit)->where('service', false)->pluck('do');
             $wellPH =   Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->limit($limit)->where('service', false)->pluck('ph');
-            $wellDates =  Well::orderBy($WellDate)->where($WellDate, '>', Carbon::now()->subMonth())->where('service', false)->limit(20)->pluck('well_id');
+            $wellDates =  Well::orderBy($WellDate)->where($WellDate, '>', $carbon)->where('service', false)->limit(20)->pluck('well_id');
         }
        
         return view('dashboard', [
