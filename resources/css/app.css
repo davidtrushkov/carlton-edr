@@ -3,6 +3,13 @@
 @import 'tailwindcss/utilities';
 
 @media (max-width: 767px) { 
+  .bg {
+    height: fit-content;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
     .xs-grid-cols-none {
       grid-template-columns: none;
     }
@@ -31,7 +38,22 @@
     .xs-width-full {
       width: 100%;
     }
+    .pt-12-sm {
+      padding-top: 0 !important;
+    }
 }
+
+.pt-12-sm {
+  padding-top: 3rem;
+}
+
+.bg {
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 .dot-red {
   height: 8px;

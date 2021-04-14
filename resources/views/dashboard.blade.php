@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="container mx-auto pt-12 pb-12">
+    <div class="container mx-auto pt-12-sm pb-12">
         <div class="lg:flex lg:justify-between">
             <div class="lg:w-64 bg-white md:mb-12 lg:m-0 rounded-lg p-4 xs-p-2 not-rounded-xs">
                 @include('components.sidebar')
