@@ -43,18 +43,6 @@
                             <div class="text-red-500 text-sm font-bold">{{ $errors->first('eff_cl2t') }}</div>
                         @endif
                     </div>
-
-                    <div>
-                        <label class="block">
-                        <span class="text-sm text-gray-500 font-bold">CLT-F</span>
-                            <input type="text" value="{{ old('eff_peff_cl2fh') ? old('eff_cl2f') : $lab->eff_cl2f }}" 
-                            class="@if($errors->has('eff_cl2f'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder="Cl2-F" name="eff_cl2f" />
-                        </label>
-                        @if ($errors->has('eff_cl2f'))
-                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('eff_cl2f') }}</div>
-                        @endif
-                    </div>
                     <div>
                         <label class="block">
                         <span class="text-sm text-gray-500 font-bold">NH4-T</span>
@@ -64,17 +52,6 @@
                         </label>
                         @if ($errors->has('eff_nh4t'))
                             <div class="text-red-500 text-sm font-bold">{{ $errors->first('eff_nh4t') }}</div>
-                        @endif
-                    </div>
-                    <div>
-                        <label class="block">
-                        <span class="text-sm text-gray-500 font-bold">NH4-F</span>
-                            <input type="text" value="{{ old('eff_nh4f') ? old('eff_nh4f') : $lab->eff_nh4f }}" 
-                            class="@if($errors->has('eff_nh4f'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder="NH4-F" name="eff_nh4f" />
-                        </label>
-                        @if ($errors->has('eff_nh4f'))
-                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('eff_nh4f') }}</div>
                         @endif
                     </div>
                     <div>
@@ -143,18 +120,6 @@
                             <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_cl2t') }}</div>
                         @endif
                     </div>
-
-                    <div>
-                        <label class="block">
-                        <span class="text-sm text-gray-500 font-bold">CLT-F</span>
-                            <input type="text" value="{{ old('product_cl2f') ? old('product_cl2f') : $lab->product_cl2f }}" 
-                            class="@if($errors->has('product_cl2f'))border-red-500 @endif p-2 mt-1 block w-full rounded-md border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder="Cl2-F" name="product_cl2f" />
-                        </label>
-                        @if ($errors->has('product_cl2f'))
-                            <div class="text-red-500 text-sm font-bold">{{ $errors->first('product_cl2f') }}</div>
-                        @endif
-                    </div>
                     <div>
                         <label class="block">
                         <span class="text-sm text-gray-500 font-bold">NH4-T</span>
@@ -208,7 +173,7 @@
 
 
 
-        <div class="lg:flex lg:justify-between mb-12">
+        <!-- <div class="lg:flex lg:justify-between mb-12">
             <div class="lg:flex-1 bg-white rounded-lg p-4">
              
                     
@@ -358,7 +323,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
 
 

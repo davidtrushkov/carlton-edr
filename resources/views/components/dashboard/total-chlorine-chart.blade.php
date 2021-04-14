@@ -14,10 +14,9 @@
                 ];
                 var data = {
                     labEffCL2T: {{  $labEffCL2T  }},
-                    labPreCL2T: {{   $labPreCL2T  }},
-                    labPostCL2T: {{   $labPostCL2T  }}
+                    labProdCL2T: {{   $labProdCL2T  }},
                 };
-                var labels = ['EFF','PR','POST'];
+                var labels = ['EFF','Product'];
 
                 function getChartData(data) {
                     let chartData = {

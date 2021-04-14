@@ -37,7 +37,11 @@
                                     <div x-show="show" class="border px-4 py-3 my-2 text-gray-700">
                                         @foreach($dates as $date)
                                             <div class="text-sm font-extralight ml-4 pb-1">
-                                                {{ $date->well_id }}
+                                                @if($date->service === 1)
+                                                    <span class="dot-red"></span> {{ $date->well_id }}
+                                                @else
+                                                    <span class="dot-green"></span> {{ $date->well_id }}
+                                                @endif
                                                 <a href="{{ route('wellsEdit', $date->id) }}" class="text-gray-400 ml-4">Edit</a>
                                                 <span class="float-right text-xs text-gray-500">Updated {{ $date->updated_at->diffForHumans() }}</span>
                                             </div>

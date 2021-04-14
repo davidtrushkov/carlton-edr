@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/labs/post', [\App\Http\Controllers\LabController::class, 'store']);
     Route::post('/labs/post/update/{id}', [\App\Http\Controllers\LabController::class, 'update']);
     Route::post('/labs/export', [\App\Http\Controllers\LabController::class, 'export'])->name('LabExport');
+    Route::post('/labs/import', [\App\Http\Controllers\LabController::class, 'import'])->name('LabImport');
 
     Route::post('/wells/export', [\App\Http\Controllers\WellController::class, 'export'])->name('WellExport');
     Route::get('/wells', [\App\Http\Controllers\WellController::class, 'index'])->name('wells');

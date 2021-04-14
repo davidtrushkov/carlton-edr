@@ -23,8 +23,9 @@ class DashboardController extends Controller
         $limit = 200;
 
         $labEffCL2T =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('eff_cl2t');
-        $labPreCL2T =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('pre_cl2t');
-        $labPostCL2T = Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('post_cl2t');
+        $labProdCL2T =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('product_cl2t');
+        // $labPreCL2T =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('pre_cl2t');
+        // $labPostCL2T = Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck('post_cl2t');
         $labDates =  Lab::orderBy($labDate)->where($labDate, '>', $carbon)->limit($limit)->pluck($labDate)->map->format('m-y');
 
  
@@ -51,8 +52,7 @@ class DashboardController extends Controller
        
         return view('dashboard', [
             'labEffCL2T' => $labEffCL2T, 
-            'labPreCL2T' => $labPreCL2T, 
-            'labPostCL2T' => $labPostCL2T,
+            'labProdCL2T' => $labProdCL2T,
             'labDates' => $labDates,
             'wellCOND' => $wellCOND,
             'wellNTU' => $wellNTU,

@@ -34,17 +34,12 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
 
     public function query() {
         if($this->type === 'eff_samples') {
-            return Lab::select('id', 'eff_ph', 'eff_cond', 'eff_cl2t', 'eff_cl2f', 'eff_nh4t', 'eff_nh4f', 'eff_turb', 'eff_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
+            return Lab::select('id', 'eff_ph', 'eff_cond', 'eff_cl2t', 'eff_nh4t', 'eff_turb', 'eff_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
         } elseif($this->type === 'product_samples') {
-            return Lab::select('id', 'product_ph', 'product_cond', 'product_cl2t', 'product_cl2f', 'product_nh4t', 'product_turb', 'product_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
-        } elseif ($this->type === 'pr_pre_samples') {
-            return Lab::select('id', 'pre_ph', 'pre_cond', 'pre_cl2t', 'pre_nh4t', 'pre_turb', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
-        } elseif ($this->type === 'pr_post_samples') {
-            return Lab::select('id', 'post_ph', 'post_cond', 'post_cl2t', 'post_nh4t', 'post_turb', 'post_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
+            return Lab::select('id', 'product_ph', 'product_cond', 'product_cl2t', 'product_nh4t', 'product_turb', 'product_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
         } elseif ($this->type === 'all_samples') {
-            return Lab::select('id', 'product_ph', 'product_cond', 'product_cl2t', 'product_cl2f', 'product_nh4t', 'product_turb', 'product_po4', 
-                                'eff_ph', 'eff_cond', 'eff_cl2t', 'eff_cl2f', 'eff_nh4t', 'eff_nh4f', 'eff_turb', 'eff_po4', 'lab_date', 'created_at',
-                                'pre_ph', 'pre_cond', 'pre_cl2t', 'pre_nh4t', 'pre_turb', 'post_ph', 'post_cond', 'post_cl2t', 'post_nh4t', 'post_turb', 'post_po4')->orderBy('lab_date', 'desc');
+            return Lab::select('id', 'product_ph', 'product_cond', 'product_cl2t', 'product_nh4t', 'product_turb', 'product_po4', 
+                                'eff_ph', 'eff_cond', 'eff_cl2t', 'eff_nh4t', 'eff_turb', 'eff_po4', 'lab_date', 'created_at')->orderBy('lab_date', 'desc');
         } elseif ($this->type === 'select_dates') {
             return Lab::query()->whereBetween('lab_date', [$this->from, $this->to])->orderBy('lab_date', 'desc');  
         }
@@ -59,29 +54,15 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 $lab->product_ph,
                 $lab->product_cond,
                 $lab->product_cl2t,
-                $lab->product_cl2f,
                 $lab->product_nh4t,
                 $lab->product_turb,
                 $lab->product_po4,
                 $lab->eff_ph,
                 $lab->eff_cond,
                 $lab->eff_cl2t,
-                $lab->eff_cl2f,
                 $lab->eff_nh4t,
-                $lab->eff_nh4f,
                 $lab->eff_turb,
                 $lab->eff_po4,
-                $lab->pre_ph,
-                $lab->pre_cond,
-                $lab->pre_cl2t,
-                $lab->pre_nh4t,
-                $lab->pre_turb,
-                $lab->post_ph,
-                $lab->post_cond,
-                $lab->post_cl2t,
-                $lab->post_nh4t,
-                $lab->post_turb,
-                $lab->post_po4,
                 $lab->lab_date->format('m-d-Y'),
                 Date::dateTimeToExcel(Carbon::parse($lab->created_at)),
             ];
@@ -91,7 +72,6 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 $lab->product_ph,
                 $lab->product_cond,
                 $lab->product_cl2t,
-                $lab->product_cl2f,
                 $lab->product_nh4t,
                 $lab->product_turb,
                 $lab->product_po4,
@@ -104,34 +84,9 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 $lab->eff_ph,
                 $lab->eff_cond,
                 $lab->eff_cl2t,
-                $lab->eff_cl2f,
                 $lab->eff_nh4t,
-                $lab->eff_nh4f,
                 $lab->eff_turb,
                 $lab->eff_po4,
-                $lab->lab_date->format('m-d-Y'),
-                Date::dateTimeToExcel(Carbon::parse($lab->created_at)),
-            ];
-        } elseif ($this->type === 'pr_pre_samples') {
-            return [
-                $lab->id,
-                $lab->pre_ph,
-                $lab->pre_cond,
-                $lab->pre_cl2t,
-                $lab->pre_nh4t,
-                $lab->pre_turb,
-                $lab->lab_date->format('m-d-Y'),
-                Date::dateTimeToExcel(Carbon::parse($lab->created_at)),
-            ];
-        } elseif ($this->type === 'pr_post_samples') {
-            return [
-                $lab->id,
-                $lab->post_ph,
-                $lab->post_cond,
-                $lab->post_cl2t,
-                $lab->post_nh4t,
-                $lab->post_turb,
-                $lab->post_po4,
                 $lab->lab_date->format('m-d-Y'),
                 Date::dateTimeToExcel(Carbon::parse($lab->created_at)),
             ];
@@ -146,9 +101,7 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 'PH',
                 'COND',
                 'CL2-T',
-                'CL2-F',
                 'NH4-T',
-                'NH4-F',
                 'TURB',
                 'PO4',
                 'Lab Date',
@@ -162,7 +115,6 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 'PH',
                 'COND',
                 'CL2-T',
-                'CL2-F',
                 'NH4-T',
                 'TURB',
                 'PO4',
@@ -170,33 +122,6 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 'Created'
             ];
         } 
-        
-        if ($this->type === 'pr_pre_samples') {
-            return [
-                'ID',
-                'PH',
-                'COND',
-                'CL2-T',
-                'NH4-T',
-                'TURB',
-                'Lab Date',
-                'Created'
-            ];
-        }
-
-        if ($this->type === 'pr_post_samples') {
-            return [
-                'ID',
-                'PH',
-                'COND',
-                'CL2-T',
-                'NH4-T',
-                'TURB',
-                'PO4',
-                'Lab Date',
-                'Created'
-            ];
-        }
 
         if($this->type === 'all_samples' || $this->type === 'select_dates') {
             return [
@@ -204,29 +129,15 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                 'PRODUCT-PH',
                 'PRODUCT-COND',
                 'PRODUCT-CL2-T',
-                'PRODUCT-CL2-F',
                 'PRODUCT-NH4-T',
                 'PRODUCT-TURB',
                 'PRODUCT-PO4',
                 'EFF-PH',
                 'EFF-COND',
                 'EFF-CL2-T',
-                'EFF-CL2-F',
                 'EFF-NH4-T',
-                'EFF-NH4-F',
                 'EFF-TURB',
                 'EFF-PO4',
-                'PRE-PH',
-                'PRE-COND',
-                'PRE-CL2-T',
-                'PRE-NH4-T',
-                'PRE-TURB',
-                'POST-PH',
-                'POST-COND',
-                'POST-CL2-T',
-                'POST-NH4-T',
-                'POST-TURB',
-                'POST-PO4',
                 'Lab Date',
                 'Created'
             ];
@@ -237,21 +148,13 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
     public function columnFormats(): array {
         if($this->type === 'all_samples' || $this->type === 'select_dates') {
             return [
-                'AC' => NumberFormat::FORMAT_DATE_XLSX14,
+                'O' => NumberFormat::FORMAT_DATE_XLSX14,
             ];
         } elseif ($this->type === 'product_samples') {
             return [
-                'J' => NumberFormat::FORMAT_DATE_XLSX14,
+                'I' => NumberFormat::FORMAT_DATE_XLSX14,
             ];
         } elseif ($this->type === 'eff_samples') {
-            return [
-                'K' => NumberFormat::FORMAT_DATE_XLSX14,
-            ];
-        } elseif ($this->type === 'pr_pre_samples') {
-            return [
-                'H' => NumberFormat::FORMAT_DATE_XLSX14,
-            ];
-        } elseif ($this->type === 'pr_post_samples') {
             return [
                 'I' => NumberFormat::FORMAT_DATE_XLSX14,
             ];
@@ -288,10 +191,6 @@ class LabsExport implements FromQuery, WithHeadings, WithColumnFormatting, WithM
                     $event->sheet->setCellValue('A1', 'Product Lab Results');
                 } elseif ($this->type === 'eff_samples') {
                     $event->sheet->setCellValue('A1', 'Effluent Lab Results');
-                } elseif ($this->type === 'pr_pre_samples') {
-                    $event->sheet->setCellValue('A1', 'Peace River Pre Lab Results');
-                } elseif ($this->type === 'pr_post_samples') {
-                    $event->sheet->setCellValue('A1', 'Peace River Post Lab Results');
                 } elseif ($this->type === 'select_dates') {
                     $event->sheet->setCellValue('A1', 'Lab Results With Dates: '. $this->from->format('m-d-Y') .' / '. $this->to->format('m-d-Y'));
                 }
