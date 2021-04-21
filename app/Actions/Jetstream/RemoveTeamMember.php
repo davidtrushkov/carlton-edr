@@ -2,6 +2,7 @@
 
 namespace App\Actions\Jetstream;
 
+use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
@@ -20,6 +21,12 @@ class RemoveTeamMember implements RemovesTeamMembers
      */
     public function remove($user, $team, $teamMember)
     {
+        $x = User::where('email', $teamMember->email)->first();
+
+        $x->admin = false;
+        
+        $x->update();
+
         $this->authorize($user, $team, $teamMember);
 
         $this->ensureUserDoesNotOwnTeam($teamMember, $team);

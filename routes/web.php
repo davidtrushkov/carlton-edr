@@ -1,9 +1,6 @@
 <?php
 
 use App\Http\Controllers\FileController;
-use App\Models\Lab;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->group(function () {
-
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/labs', [\App\Http\Controllers\LabController::class, 'index'])->name('labs');
     Route::get('/labs/create', [\App\Http\Controllers\LabController::class, 'create'])->name('labsCreate');
     Route::get('/labs/edit/{id}', [\App\Http\Controllers\LabController::class, 'edit'])->name('labsEdit');
@@ -53,7 +49,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/edrs/export/{id}', [\App\Http\Controllers\EDRDataController::class, 'export'])->name('EDRExport');
     Route::post('/edrs/import/{id}', [\App\Http\Controllers\EDRDataController::class, 'import'])->name('EDRImport');
 });
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');

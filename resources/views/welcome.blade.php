@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <meta name="author" content="David Trushkov">
+        <meta name="description" content="The Carlton water treatment facility data management system.">
+        
+        <title>Carlton Plant</title>
+        <link rel="shortcut icon" type="image/jpg" href="/img/icons8-water-32.png"/>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,10 +27,20 @@
     </head>
     <body class="antialiased bg">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        
             @if (Route::has('login'))
                 <div class="fixed top-0 right-0 px-6 py-4 sm:block bg-white w-full">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                {{ __('Logout') }}
+                            </x-jet-responsive-nav-link>
+                        </form>
+
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -36,7 +50,15 @@
                     @endauth
                 </div>
             @endif
-
+            @if(session()->has('error'))
+                <div class="max-w-md mx-auto mt-9 fixed">
+                    <div class="flex pb-6">
+                        <div class="bg-red-300 border red-green-600 text-red-800 pl-3 pr-3 py-2 rounded inline-flex" role="alert">
+                            <span class="block sm:inline text-sm">{{ session('error') }}</span>
+                        </div>
+                    </div>    
+                </div>
+            @endif
             <img class="bg" src="{{ asset('/svg/carlton-water.jpg') }}">
 
         </div>

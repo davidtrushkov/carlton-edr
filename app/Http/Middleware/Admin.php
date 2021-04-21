@@ -14,11 +14,12 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $team = null)
     {
-        if(auth()->user()->admin == 1){
+        if(auth()->user()->admin == 1) {
             return $next($request);
-          }
-            return redirect('dashboard')->with('error','You have not admin access');
+        }
+        
+        return redirect('/')->with('error','You do not have access to the site. You need to be invited by admin.');
     }
 }

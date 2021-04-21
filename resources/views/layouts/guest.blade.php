@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <meta name="author" content="David Trushkov">
+        <meta name="description" content="The Carlton water treatment facility data management system.">
+
+        <title>{{ config('app.name', 'Carlton Plant') }}</title>
+        <link rel="shortcut icon" type="image/jpg" href="/img/icons8-water-32.png"/>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
